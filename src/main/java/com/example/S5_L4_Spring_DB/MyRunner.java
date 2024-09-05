@@ -8,6 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.UUID;
+
 @Component
 public class MyRunner implements CommandLineRunner {
     @Autowired
@@ -67,9 +70,18 @@ public class MyRunner implements CommandLineRunner {
 //        prodottoService.saveProdotto(hawaiian);
 //        prodottoService.saveProdotto(salami);
 
-        prodottoService.findAllProdotti().forEach(System.out::println);
+        System.out.println("***********findAllProdotti****************");
+        List<Prodotto> listaProdotti = prodottoService.findAllProdotti();
+        listaProdotti.forEach(System.out::println);
 
+        System.out.println("***********findProdottoById****************");
+        System.out.println(prodottoService.findProdottoById(UUID.fromString("137eb8c5-1f68-4dfe-ad16-8971c25dd063")));
 
+        System.out.println("***********findByPrezzo****************");
+        prodottoService.findByPrezzo(1.29).forEach(System.out::println);
+
+        System.out.println("***********findByPartialName****************");
+        prodottoService.findByPartialNome("Pi").forEach(System.out::println);
 
 
 //        menu.vediMenu();

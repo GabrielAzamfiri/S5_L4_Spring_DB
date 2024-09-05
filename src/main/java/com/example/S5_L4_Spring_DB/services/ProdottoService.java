@@ -54,4 +54,12 @@ public class ProdottoService {
         log.info("Prodotto con id " + prodottoId + " modificato correttamente!");
     }
 
+    public List<Prodotto> findByPrezzo(Double prezzo){
+        return prodottoRepository.findByPrezzo(prezzo);
+    }
+
+    public List<Prodotto> findByPartialNome(String partialName){
+        return prodottoRepository.findByNomeStartingWith(partialName);
+    }
+
 }
