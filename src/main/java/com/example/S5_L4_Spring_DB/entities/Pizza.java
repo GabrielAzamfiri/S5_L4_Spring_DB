@@ -18,6 +18,7 @@ public class Pizza extends Prodotto{
 
     public Pizza(String nome, Double prezzo, Integer calorie) {
         super(nome, prezzo, calorie);
+       
     }
 
     public void addTopping(Topping topping){
